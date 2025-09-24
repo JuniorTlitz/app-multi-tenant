@@ -21,7 +21,7 @@ export class SignInController {
       return reply.code(401).send({ error: "Invalid credentials" });
     }
 
-    const accessToken = "";
+    const accessToken = request.server.jwt.sign({ sub: user.id });
 
     reply.code(201).send({ accessToken });
   }
