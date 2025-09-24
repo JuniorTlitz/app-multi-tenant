@@ -1,0 +1,11 @@
+model OrganizationUser {
+  userId          String           @map("user_id") @db.Uuid
+  orgnanizationId String           @map("organization_id") @db.Uuid
+  role            OrganizationRole @default(MENBER)
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  organization Organization @relation(fields: [orgnanizationId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@id([userId, orgnanizationId])
+  @@map("organization_users")
+}

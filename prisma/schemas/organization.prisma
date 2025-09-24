@@ -1,0 +1,10 @@
+model Organization {
+  id   String @id @default(uuid()) @db.Uuid
+  name String
+
+  users        OrganizationUser[]
+  leads        Lead[]
+  interactions Interaction[]
+
+  @@map("organizations")
+}

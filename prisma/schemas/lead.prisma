@@ -1,0 +1,12 @@
+model Lead {
+  id              String @id @default(uuid()) @db.Uuid
+  orgnanizationId String @map("organization_id") @db.Uuid
+  name            String
+  email           String
+  phone           String
+
+  organization Organization  @relation(fields: [orgnanizationId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  interactions Interaction[]
+
+  @@map("leads")
+}
