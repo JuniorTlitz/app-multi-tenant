@@ -10,14 +10,20 @@ importers:
     dependencies:
       '@prisma/client':
         specifier: 6.16.2
-        version: 6.16.2(prisma@6.16.2)
+        version: 6.16.2(prisma@6.16.2(typescript@5.9.2))(typescript@5.9.2)
       fastify:
         specifier: ^5.6.1
         version: 5.6.1
     devDependencies:
+      '@types/node':
+        specifier: ^24.5.2
+        version: 24.5.2
       prisma:
         specifier: ^6.16.2
-        version: 6.16.2
+        version: 6.16.2(typescript@5.9.2)
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
 
 packages:
 
@@ -71,6 +77,9 @@ packages:
 
   '@standard-schema/spec@1.0.0':
     resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
+
+  '@types/node@24.5.2':
+    resolution: {integrity: sha512-FYxk1I7wPv3K2XBaoyH2cTnocQEu8AOZ60hPbsyukMPLv5/5qr7V1i8PLHdl6Zf87I+xZXFvPCXYjiTFq+YSDQ==}
 
   abstract-logging@2.0.1:
     resolution: {integrity: sha512-2BjRTZxTPvheOvGbBslFSYOUkr+SjPtOnrLP33f+VIWLzezQpZcqVg7ja3L4dBXmzzgwT+a029jRx5PCi3JuiA==}
@@ -318,6 +327,14 @@ packages:
     resolution: {integrity: sha512-/m8M+2BJUpoJdgAHoG+baCwBT+tf2VraSfkBgl0Y00qIWt41DJ8R5B8nsEw0I58YwF5IZH6z24/2TobDKnqSWw==}
     engines: {node: '>=12'}
 
+  typescript@5.9.2:
+    resolution: {integrity: sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  undici-types@7.12.0:
+    resolution: {integrity: sha512-goOacqME2GYyOZZfb5Lgtu+1IDmAlAEu5xnD3+xTzS10hT0vzpf0SPjkXwAw9Jm+4n/mQGDP3LO8CPbYROeBfQ==}
+
 snapshots:
 
   '@fastify/ajv-compiler@4.0.2':
@@ -343,9 +360,10 @@ snapshots:
       '@fastify/forwarded': 3.0.0
       ipaddr.js: 2.2.0
 
-  '@prisma/client@6.16.2(prisma@6.16.2)':
+  '@prisma/client@6.16.2(prisma@6.16.2(typescript@5.9.2))(typescript@5.9.2)':
     optionalDependencies:
-      prisma: 6.16.2
+      prisma: 6.16.2(typescript@5.9.2)
+      typescript: 5.9.2
 
   '@prisma/config@6.16.2':
     dependencies:
@@ -378,6 +396,10 @@ snapshots:
       '@prisma/debug': 6.16.2
 
   '@standard-schema/spec@1.0.0': {}
+
+  '@types/node@24.5.2':
+    dependencies:
+      undici-types: 7.12.0
 
   abstract-logging@2.0.1: {}
 
@@ -569,10 +591,12 @@ snapshots:
       exsolve: 1.0.7
       pathe: 2.0.3
 
-  prisma@6.16.2:
+  prisma@6.16.2(typescript@5.9.2):
     dependencies:
       '@prisma/config': 6.16.2
       '@prisma/engines': 6.16.2
+    optionalDependencies:
+      typescript: 5.9.2
     transitivePeerDependencies:
       - magicast
 
@@ -626,3 +650,7 @@ snapshots:
   tinyexec@1.0.1: {}
 
   toad-cache@3.7.0: {}
+
+  typescript@5.9.2: {}
+
+  undici-types@7.12.0: {}
