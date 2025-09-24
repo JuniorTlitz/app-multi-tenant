@@ -14,7 +14,8 @@
     "prisma": "^6.16.2"
   },
   "dependencies": {
-    "@prisma/client": "6.16.2"
+    "@prisma/client": "6.16.2",
+    "fastify": "^5.6.1"
   },
   "prisma": {
     "schema": "./prisma"
