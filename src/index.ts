@@ -6,6 +6,8 @@ import fastifyJwt from "@fastify/jwt";
 const fastify = Fastify();
 
 fastify.register(routes);
+
+// TODO: signature verification failed
 fastify.register(fastifyJwt, {
   secret: process.env.JWT_SECRET!,
   sign: {
