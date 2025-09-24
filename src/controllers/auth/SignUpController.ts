@@ -1,5 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
+import { hash } from "bcryptjs";
 import { db } from "../../lib/db";
 
 const schema = z.object({
@@ -26,14 +27,25 @@ export class SignUpController {
       return reply.code(409).send({ error: "This email already in use." });
     }
 
-    await db.user.create({
+    const hashedPassword = await hash(user.password, 9);
+
+    const { id } = await db.user.create({
       data: {
         email: user.email,
         name: user.name,
-        password: user.password,
+        password: hashedPassword,
+        organizations: {
+          create: {
+            organization: {
+              create: {
+                name: organization.name,
+              },
+            },
+          },
+        },
       },
     });
 
-    reply.code(201).send({ user, organization });
+    reply.code(201).send({ id });
   }
 }
